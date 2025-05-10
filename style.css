@@ -24,6 +24,16 @@ input {
   border-radius: 8px;
   padding: 11px 16px;
   margin-bottom: 26px;
+  font-size: 18px;
+}
+
+input:focus {
+  border: 1px solid transparent;
+  background: linear-gradient(to bottom, #6348FE, #610595) border-box;
+  mask: /*4*/
+    linear-gradient(#000 0 0) padding-box, 
+    linear-gradient(#000 0 0);
+  mask-composite: exclude; /*5*/
 }
 
 input[type="text"] {
@@ -32,12 +42,22 @@ input[type="text"] {
 
 input[type="text"]::-webkit-input-placeholder {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 18;
+  /* font-size: 18; */
   opacity: 0.25;
 }
 
 label, input[type="text"] {
   display: block;
+}
+
+button {
+    width: 100%;
+    height: 53px;
+    background: #21092F;
+    color: #fff;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 18px;
 }
 
 .container {
@@ -90,6 +110,7 @@ label, input[type="text"] {
       }
 
       .card-holder {
+        text-transform: uppercase;
         font-size: 14px;
         letter-spacing: 2px;
         position: absolute;
@@ -115,6 +136,8 @@ label, input[type="text"] {
         position: absolute;
         top: 111px;
         left: 358px;
+        font-size: 14px;
+        color: #fff;
       }
     }
   }
@@ -140,6 +163,31 @@ label, input[type="text"] {
       height: 352px;
       display: flex;
       flex-direction: column;
+    }
+
+    .back-side-data {
+      display: flex;
+      input {
+        margin-bottom: 40px;
+      }
+    }
+
+    .exp-data {
+      display: flex;
+      flex-direction: column;
+      input {
+        width: 80px;
+      }
+    }
+
+    .exp-date-data {
+      display: flex;
+      flex-direction: row;
+      column-gap: 10px;
+    }
+
+    .cvc {
+      margin-left: 20px;   
     }
   }
 }
