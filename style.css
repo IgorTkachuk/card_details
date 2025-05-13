@@ -4,191 +4,300 @@
   font-weight: 500;
 }
 
-* {
-  box-sizing: border-box;
+@layer reset, desktop, mobile;
+
+@layer reset {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0px;
+  }
 }
 
-body {
-  margin: 0px;
-}
+@layer desktop {
+  body {
+    background-color: #F2F2F2;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    color: #21092F;
+  }
 
-body {
-  background-color: #F2F2F2;
-  font-family: "Space Grotesk", sans-serif;
-  font-weight: 500;
-  color: #21092F;
-}
-
-input {
-  border: 1px solid #DFDEE0;
-  border-radius: 8px;
-  padding: 11px 16px;
-  margin-bottom: 26px;
-  font-size: 18px;
-}
-
-input:focus {
-  border: 1px solid transparent;
-  background: linear-gradient(to bottom, #6348FE, #610595) border-box;
-  mask: /*4*/
-    linear-gradient(#000 0 0) padding-box, 
-    linear-gradient(#000 0 0);
-  mask-composite: exclude; /*5*/
-}
-
-input[type="text"] {
-  width: 100%;
-}
-
-input[type="text"]::-webkit-input-placeholder {
-  font-family: "Space Grotesk", sans-serif;
-  /* font-size: 18; */
-  opacity: 0.25;
-}
-
-label, input[type="text"] {
-  display: block;
-}
-
-button {
-    width: 100%;
-    height: 53px;
-    background: #21092F;
-    color: #fff;
+  input {
+    border: 1px solid #DFDEE0;
     border-radius: 8px;
-    font-family: inherit;
+    padding: 11px 16px;
+    margin-bottom: 26px;
     font-size: 18px;
-}
+  }
 
-.container {
-  min-width: 1440px;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  .card-presentation {
-    min-width: 483px;
-    height: inherit;
-    background-image: url('./images/bg-main-desktop.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
+  input:focus {
+    border: 1px solid transparent;
+    background: linear-gradient(to bottom, #6348FE, #610595) border-box;
+    mask: /*4*/
+      linear-gradient(#000 0 0) padding-box, 
+      linear-gradient(#000 0 0);
+    mask-composite: exclude; /*5*/
+  }
 
-    .card {
-      width: 447px;
-      height: 245px;
+  input[type="text"] {
+    width: 100%;
+  }
+
+  input[type="text"]::-webkit-input-placeholder {
+    font-family: "Space Grotesk", sans-serif;
+    /* font-size: 18; */
+    opacity: 0.25;
+  }
+
+  label, input[type="text"] {
+    display: block;
+  }
+
+  button {
+      width: 100%;
+      height: 53px;
+      background: #21092F;
+      color: #fff;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 18px;
+  }
+
+  .container {
+    min-width: 1440px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .card-presentation {
+      min-width: 483px;
+      height: inherit;
+      background-image: url('./images/bg-main-desktop.png');
       background-repeat: no-repeat;
       background-position: center;
+      background-size: cover;
+      position: relative;
+
+      .card {
+        width: 447px;
+        height: 245px;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .front-side {
+        background-image: url('./images/bg-card-front.png');
+        position: absolute;
+        left: 164px;
+        top: 187px;
+        color: #FFF;
+
+        &::after{
+          content: '';
+          width: 84px;
+          height: 47px;
+          background: url('./images/card-logo.svg') no-repeat center;
+          position: absolute;
+          top: 28px;
+          left: 32px;
+          z-index: 100;
+        }
+
+        .card-number{
+          font-size: 28px;
+          letter-spacing: 3.42px;
+          position: absolute;
+          top: 139px;
+          left: 32px;
+        }
+
+        .card-holder {
+          text-transform: uppercase;
+          font-size: 14px;
+          letter-spacing: 2px;
+          position: absolute;
+          top: 200px;
+          left: 32px;
+        }
+        
+        .card-valid-to {
+          font-size: 14px;
+          letter-spacing: 2px;
+          position: absolute;
+          top: 200px;
+          left: 365px;
+        }
+      }
+
+      .back-side {
+        background-image: url('./images/bg-card-back.png');
+        position: absolute;
+        top: 469px;
+        left: 258px;
+        .cvv{
+          position: absolute;
+          top: 111px;
+          left: 358px;
+          font-size: 14px;
+          color: #fff;
+        }
+      }
+    }
+
+    .card-info {
+      background-color: #fff;
+      min-width: 957px;
+      height: inherit;
+      display: flex;
+      /* justify-content: center; */
+      align-items: center;
+      padding-left: 349px;
+
+      label {
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 2px;
+        margin-bottom: 9px;
+      }
+
+      .content {
+        width: 381px;
+        height: 352px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .back-side-data {
+        display: flex;
+        input {
+          margin-bottom: 40px;
+        }
+      }
+
+      .exp-data {
+        display: flex;
+        flex-direction: column;
+        input {
+          width: 80px;
+        }
+      }
+
+      .exp-date-data {
+        display: flex;
+        flex-direction: row;
+        column-gap: 10px;
+      }
+
+      .cvc {
+        margin-left: 20px;   
+      }
+    }
+  }
+}
+
+
+@layer mobile {
+  @media (max-width: 1440px){
+    /* label {
+      color:red;
+    } */
+
+    .container {
+      min-width: auto;
     }
 
     .front-side {
-      background-image: url('./images/bg-card-front.png');
-      position: absolute;
-      left: 164px;
-      top: 187px;
-      color: #FFF;
-
-      &::after{
-        content: '';
-        width: 84px;
-        height: 47px;
-        background: url('./images/card-logo.svg') no-repeat center;
-        position: absolute;
-        top: 28px;
-        left: 32px;
-        z-index: 100;
-      }
-
-      .card-number{
-        font-size: 28px;
-        letter-spacing: 3.42px;
-        position: absolute;
-        top: 139px;
-        left: 32px;
-      }
-
-      .card-holder {
-        text-transform: uppercase;
-        font-size: 14px;
-        letter-spacing: 2px;
-        position: absolute;
-        top: 200px;
-        left: 32px;
-      }
-      
-      .card-valid-to {
-        font-size: 14px;
-        letter-spacing: 2px;
-        position: absolute;
-        top: 200px;
-        left: 365px;
-      }
+      left: 3vw;
     }
 
     .back-side {
-      background-image: url('./images/bg-card-back.png');
-      position: absolute;
-      top: 469px;
-      left: 258px;
-      .cvv{
-        position: absolute;
-        top: 111px;
-        left: 358px;
-        font-size: 14px;
-        color: #fff;
-      }
+      left: 6vw;
     }
+
+    .card-presentation {
+      min-width: 33vw;
+    }
+
+    .card-info {
+      min-width: 57vw;
+      padding-left: 22vw;
+    }
+
   }
-
-  .card-info {
-    background-color: #fff;
-    min-width: 957px;
-    height: inherit;
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    padding-left: 349px;
-
-    label {
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: 2px;
-      margin-bottom: 9px;
-    }
-
-    .content {
-      width: 381px;
-      height: 352px;
-      display: flex;
+  
+  @media (max-width: 1000px){
+    .container {
       flex-direction: column;
     }
 
-    .back-side-data {
-      display: flex;
-      input {
-        margin-bottom: 40px;
-      }
+    .card-presentation {
+      min-width: 100vw;
+      max-height: 240px;
     }
 
-    .exp-data {
-      display: flex;
-      flex-direction: column;
-      input {
-        width: 80px;
-      }
+    .card-info {
+      min-width: auto;
+      height: auto;
+      padding: 91px 24px 45px 24px;
+      .content {
+          width: auto;
+        }
     }
 
-    .exp-date-data {
-      display: flex;
-      flex-direction: row;
-      column-gap: 10px;
+    .card {
+      width: 288px;
+      height: 157px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
     }
 
-    .cvc {
-      margin-left: 20px;   
+    .front-side {
+      top: 126px;
+      left: 17px;
+      z-index: 100;
+      &::after {
+          content: '';
+          width: 54px;
+          height: 30px;
+          background-size: contain;
+          left: 19px;
+        }
+
+      .card-number {
+          font-size: 18px;
+          letter-spacing: 2.2px;
+          top: 85px;
+          left: 19px;
+        }
+
+        .card-holder {
+          font-size: 9px;
+          letter-spacing: 1.29px;
+          top: 125px;
+          left: 19px;
+        }
+
+        .card-valid-to {
+          font-size: 9px;
+          letter-spacing: 1.29px;
+          top: 125px;
+          left: 232px;
+        }
+    }
+
+    .back-side {
+      top: 72px;
+      left: 73px;
+      .cvv {
+          position: absolute;
+          top: 71.64px;
+          left: 235px;
+          font-size: 9px;
+        }
     }
   }
 }
-
