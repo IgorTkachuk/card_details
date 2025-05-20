@@ -28,26 +28,27 @@
     border: 1px solid #DFDEE0;
     border-radius: 8px;
     padding: 11px 16px;
-    margin-bottom: 26px;
+    /* margin-bottom: 26px; */
     font-size: 18px;
-  }
-
-  input:focus {
-    border: 1px solid transparent;
-    background: linear-gradient(to bottom, #6348FE, #610595) border-box;
-    mask: /*4*/
-      linear-gradient(#000 0 0) padding-box, 
-      linear-gradient(#000 0 0);
-    mask-composite: exclude; /*5*/
   }
 
   input[type="text"] {
     width: 100%;
+    outline: none;
+  }
+
+  .bwrap {
+    border: 2px solid transparent;
+    margin-bottom: 26px;
+    border-radius: 11px;
+  }
+
+  .bwrap:has(input:focus) {
+    background: linear-gradient(to bottom, #6348FE, #610595) border-box;
   }
 
   input[type="text"]::-webkit-input-placeholder {
     font-family: "Space Grotesk", sans-serif;
-    /* font-size: 18; */
     opacity: 0.25;
   }
 
@@ -172,9 +173,10 @@
 
       .back-side-data {
         display: flex;
-        input {
+        margin-bottom: 14px;
+        /* input {
           margin-bottom: 40px;
-        }
+        } */
       }
 
       .exp-data {
@@ -290,7 +292,7 @@
     }
 
     .back-side {
-      top: 72px;
+      top: 37px;
       left: 73px;
       .cvv {
           position: absolute;
